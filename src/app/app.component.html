@@ -1,0 +1,10 @@
+    <div *ngIf="!showDashboard" class="h-100 vw-100">
+        <app-login (loggedInEvent) = "logIn()"></app-login>
+    </div>
+    <div *ngIf="showDashboard">
+        <!--<app-nav-menu></app-nav-menu>-->
+        <div class="container">
+            Welcome {{user?.name}}!!
+            Role {{user?.role}}
+        </div>
+    </div>
