@@ -1,0 +1,15 @@
+.img-container {
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 74px;
+  padding:3.5px;
+}
+
+.title {
+  font-size: 25px;
+}

@@ -1,0 +1,60 @@
+<div class="p-4 text-black">
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" autocomplete="off" [(ngModel)]="user.name" required>
+                    <label for="name">Name</label>
+                </div>
+                <div *ngIf="submitted && user.name == ''" class="text-danger">
+                    Name is required
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" autocomplete="off" id="email" [(ngModel)]="user.email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div *ngIf="submitted && user.email == ''" class="text-danger">
+                    Email is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="designation" class="form-control" id="designation" autocomplete="off" [(ngModel)]="user.designation" required>
+                    <label for="designation">Designation</label>
+                </div>
+                <div *ngIf="submitted && user.designation == ''" class="text-danger">
+                    Designation is required
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="role" class="form-control" autocomplete="off" id="role" [(ngModel)]="user.role" required>
+                    <label for="role">Role</label>
+                </div>
+                <div *ngIf="submitted && user.role == ''" class="text-danger">
+                    Role is required
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="user.role !== 'admin'">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="manager" class="form-control" autocomplete="off" id="manager" [(ngModel)]="user.managerId" required>
+                    <label for="manager">Manager</label>
+                </div>
+                <div *ngIf="submitted && user.managerId == ''" class="text-danger">
+                    Manager is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <h6 class="m-0 col-1 mt-2 ms-auto">
+            <button class="btn-active" (click)="addEmployee()">Add</button>
+        </h6>
+    </div>
+</div>

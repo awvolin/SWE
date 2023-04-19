@@ -1,0 +1,197 @@
+/* You can add global styles to this file, and also import other style files */
+
+$color-primary: #4a62ff;
+$color-secondary: #b4b6c2;
+
+body {
+  height: 100vh;
+  width: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.welcome-page {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(41,33,138,1) 0%, rgba(0,212,255,1) 100%);
+  min-width: 100%;
+  height: 100%;
+
+  label{
+      color: $color-secondary;
+      font-size: 16px;
+  }
+}
+
+.login-container {
+  min-width: 50%;
+  max-width: 50%;
+  height: 100%;
+  float: right;
+
+  .login-form {
+    background: rgba(0,0,0,0.7);
+    border-radius: 8px;
+    padding: 70px 70px 0px;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    vertical-align: middle;
+
+    form {
+      height: 50%;
+      width: 100%;
+      margin: auto;
+    }
+  }
+}
+
+.btn{
+    border-radius: 8px;
+    padding: 10px 5px;
+}
+
+.btn-primary{
+    background: $color-primary;
+    color: $color-secondary;
+}
+
+.btn-secondary{
+    background: $color-secondary;
+    color: $color-primary;
+}
+
+.btn-login-transparent{
+    color: $color-secondary;
+    background: unset;
+}
+
+.btn-login-transparent:hover {
+  color: $color-secondary;
+  border: 1px solid $color-secondary;
+}
+
+.login-container .form-group label, .login-container .form-group input {
+  color: $color-secondary;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid $color-secondary;
+  border-radius: 0px;
+  outline: none;
+  background: transparent;
+}
+
+.form-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: $color-primary;
+  font-size: 12px;
+}
+
+.form-group input:focus{
+    box-shadow: none !important;
+    background: transparent;
+}
+
+.color-secondary {
+  color: $color-secondary;
+}
+
+.login-title-container{
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
+.login-title{
+    margin: auto;
+    color: $color-secondary;
+    font-size: 60px;
+}
+
+.bg-primary {
+  background: linear-gradient(#000000, $color-primary);
+}
+
+.bg-secondary{
+    background: $color-secondary;
+}
+
+.f-16{
+    font-size: 16px;
+}
+
+.svg-inline--fa {
+  height: 25px !important;
+  width: 25px !important;
+}
+
+.employee-container {
+  border: 1px solid $color-secondary;
+  border-radius: 8px;
+  background: white;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  div {
+    background: rgb(226 228 230);
+  }
+}
+
+.router-outlet{
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.btn-active {
+  color: $color-secondary;
+  background: linear-gradient($color-primary, #000000);
+  width: 100px;
+  height: 50px;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+

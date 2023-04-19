@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/EMS.Api/bin/Debug/net6.0
+/EMS.Api/obj
+/EMS.Web/.vs
+/EMS.Web/.vscode
+/EMS.Web/obj
