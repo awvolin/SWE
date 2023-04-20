@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -13,6 +14,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeService } from './services/employee.service';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { CreateMeetingsComponent } from './create-meetings/create-meetings.component';
+import { MeetingsComponent } from './meetings/meetings.component';
+import { ShowMeetingsComponent } from './show-meetings/show-meetings.component';
+import { MeetingServiceService } from './services/meeting-service.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';  
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -22,17 +30,24 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
     EmployeeRegistrationComponent,
     DashboardComponent,
     EmployeeDetailsComponent,
+    CreateMeetingsComponent,
+    MeetingsComponent,
+    ShowMeetingsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FullCalendarModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSnackBarModule,
+    MatButtonModule
   ],
-  providers: [LoginService, EmployeeService],
+  providers: [LoginService, EmployeeService, MeetingServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,12 +1,16 @@
 
 import { Injectable, Inject } from '@angular/core';
 import { User } from '../models/user';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginService {
   users: User[];
   loggedInUser: User | undefined;
-  constructor() {
+  constructor(private http: HttpClient) {
     this.users = [
       { name: "Peter Parker", email: "peterparker@gmail.com", designation: "Team Member",password: "Peter123", role: "employee", managerId: "abd", id: "abc" } as User,
       { name: "Tony Stark", email: "iamironman@gmail.com", designation: "Manager", password: "Jarvis123", role: "employee", managerId: "abq", id: "abd" } as User,
@@ -24,6 +28,20 @@ export class LoginService {
       { name: "Sam Wilson", email: "samwilson@gmail.com", designation: "Team Member", password: "Sam123", role: "employee", managerId: "abg", id: "abp" } as User,
       { name: "Nick Fury", email: "nickfury@gmail.com", designation: "Admin", password: "Fury123", role: "admin", managerId: "", id: "abq" } as User
     ];
+
+    console.log(this.users);
+
+    this.getUsers().subscribe(response => {
+      this.users = response.data;
+    });
+
+    console.log(this.users);
+  }
+
+  //Http Client get method
+  public getUsers(): Observable<any> {
+    const url = 'https://localhost:7060/api/Employee';
+    return this.http.get<any>(url);
   }
 
   login(email: string, password: string) {

@@ -1,0 +1,176 @@
+<div class="p-4 text-black">
+  <div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            id="title"
+            autocomplete="off"
+            [(ngModel)]="meeting.title"
+            required
+          />
+          <label for="title">Title</label>
+        </div>
+        <div *ngIf="submitted && meeting.title === ''" class="text-danger">
+          Title is required
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            name="description"
+            class="form-control"
+            autocomplete="off"
+            id="description"
+            [(ngModel)]="meeting.description"
+          />
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            name="Date"
+            #Status="ngModel"
+            type="date"
+            [(ngModel)]="meeting.date"
+            class="form-control"
+            required
+          />
+        </div>
+        <div *ngIf="submitted && meeting.date === ''" class="text-danger">
+          Date is required
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            name="time"
+            #Status="ngModel"
+            type="time"
+            [(ngModel)]="meeting.startTime"
+            class="form-control"
+            required
+          />
+        </div>
+        <div *ngIf="submitted && meeting.startTime === ''" class="text-danger">
+          Time is required
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="number"
+            name="duration"
+            class="form-control"
+            id="duration"
+            autocomplete="off"
+            [(ngModel)]="meeting.duration"
+            required
+          />
+          <label for="title">Duration(in minutes)</label>
+        </div>
+        <div
+          *ngIf="
+            (submitted && meeting.duration === '') || meeting.duration === '0'
+          "
+          class="text-danger"
+        >
+          Duration is required
+        </div>
+      </div>
+    </div>
+    <div class="autocomplete">
+      <label for="user-chip">Select Employees</label>
+      <div class="chips-input-container">
+        <div class="user-chip" *ngFor="let user of userSelects">
+          {{ user.name }}
+          <span (click)="deleteSelects(user)" class="delete-icon-chip"
+            >&#10006;</span
+          >
+        </div>
+
+        <input
+          name="suggestion"
+          type="text"
+          (click)="suggest()"
+          [(ngModel)]="userSelectsString"
+        />
+      </div>
+
+      <div class="autocomplete-items" *ngIf="show">
+        <div
+          *ngFor="let s of suggestions"
+          [ngClass]="isSelected(s) ? 'selected-suggestion' : ''"
+          (click)="selectSuggestion(s)"
+        >
+          {{ s.name }}
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            name="designation"
+            class="form-control"
+            id="designation"
+            autocomplete="off"
+            [(ngModel)]="user.designation"
+            required
+          />
+          <label for="designation">Designation</label>
+        </div>
+        <div *ngIf="submitted && user.designation == ''" class="text-danger">
+          Designation is required
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            name="role"
+            class="form-control"
+            autocomplete="off"
+            id="role"
+            [(ngModel)]="user.role"
+            required
+          />
+          <label for="role">Role</label>
+        </div>
+        <div *ngIf="submitted && user.role == ''" class="text-danger">
+          Role is required
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="user.role !== 'admin'">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input
+            type="text"
+            name="manager"
+            class="form-control"
+            autocomplete="off"
+            id="manager"
+            [(ngModel)]="user.managerId"
+            required
+          />
+          <label for="manager">Manager</label>
+        </div>
+        <div *ngIf="submitted && user.managerId == ''" class="text-danger">
+          Manager is required
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="col-12">
+    <h6 class="m-0 col-1 mt-2 ms-auto">
+      <button class="btn-active" (click)="createMeet()">Add</button>
+    </h6>
+  </div>
+</div>
